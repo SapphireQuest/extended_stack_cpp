@@ -9,10 +9,12 @@ class Stack
         int top;
     public:
         Stack();
+        Stack(const Stack &s);
         ~Stack();
 
         bool isEmpty();
         void push(int element);
         int pop();
+        void displayStack();
 };
 

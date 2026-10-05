@@ -9,6 +9,19 @@ Stack::Stack()
     data = new int[capacity];
 }
 
+Stack::Stack(const Stack &s)
+{
+    top = s.top; 
+    capacity = (s.top) + 1;
+    data = new int[capacity];
+
+    for (int num = 0; num < top; num++)
+    {
+        data[num] = s.data[num];
+    }
+}
+
+
 Stack::~Stack()
 {
     delete[] data;
@@ -42,12 +55,17 @@ int Stack::pop()
 {
     if (isEmpty())
     {
-        std::cout << "Stack is empty, not possible to pop" << std::endl;
-        delete[] data;
-        data = nullptr;
-        std::exit(1);
+        throw std::out_of_range("Stack is empty, not possible to pop");
     }
     top--;
     int element = data[top];
     return element;
+}
+
+void Stack::displayStack()
+{
+    for (int num = 0; num < top; num++)
+    {
+        std::cout << data[num] << std::endl;
+    }
 }

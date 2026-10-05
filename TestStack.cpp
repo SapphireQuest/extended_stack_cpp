@@ -29,16 +29,37 @@ void overflow_test()
 
 void empty_stack_test()
 {
-    Stack stack;
-    std::cout << "======EMPTY STACK TEST======" << std::endl;
-    
-    if (stack.isEmpty())
+    try
     {
-        std::cout << "Stack is empty" << std::endl;
+        Stack stack;
+        std::cout << "======EMPTY STACK TEST======" << std::endl;
+        
+        if (stack.isEmpty())
+        {
+            std::cout << "Stack is empty" << std::endl;
+        }
+    
+        stack.pop();
+    }
+    catch(const std::out_of_range &e)
+    {
+        std::cout << e.what() << std::endl;
     }
 
-    // stack.pop();
 
+}
+
+
+void copy_stack_test()
+{
+    Stack stack;
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    Stack s(stack);
+
+    stack.displayStack();
+    s.displayStack();
 }
 
 
@@ -48,7 +69,7 @@ int main(void)
     basic_test();
     overflow_test();
     empty_stack_test();
-
+    copy_stack_test();
     return 0;
 }
 
