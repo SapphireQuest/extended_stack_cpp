@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdexcept>
+
 #include "Stack.h"
 
 void basic_test()
@@ -12,6 +14,7 @@ void basic_test()
     
     std::cout << "Pop: expected 30, actual: " << stack.pop() << std:: endl;
     std::cout << "Pop: expected 20, actual: " << stack.pop() << std::endl;
+    std::cout << std::endl;
 }
 
 void overflow_test()
@@ -25,6 +28,7 @@ void overflow_test()
     stack.push(50);
 
     std::cout << "Top of the stack after extension: expected 50, actual: " << stack.pop() << std::endl;
+    std::cout << std::endl;
 }
 
 void push_and_pop_test()
@@ -39,6 +43,7 @@ void push_and_pop_test()
     stack.push(300);
     std::cout << "Pop after new push: expected 300, actual: " << stack.pop() << std::endl;
     std::cout << "Pop remaining element: expected 100, actual: " << stack.pop() << std::endl;
+    std::cout << std::endl;
 }
 
 void two_stacks_test()
@@ -60,6 +65,7 @@ void two_stacks_test()
     std::cout << "Pop from stack 2: expected 88, actual: " << s2.pop() << std::endl;
     std::cout << "Pop from stack 1: expected 11, actual: " << s1.pop() << std::endl;
     std::cout << "Pop from stack 2: expected 99, actual: " << s2.pop() << std::endl;
+    std::cout << std::endl;
 }
 
 
@@ -83,20 +89,30 @@ void empty_stack_test()
     {
         std::cout << e.what() << std::endl;
     }
-
+    std::cout << std::endl;
 }
 
 
 void copy_stack_test()
 {
+    std::cout << "======COPY STACK TEST======" << std::endl;
     Stack stack;
+    std::cout << "Push into stack 1:" << std::endl;
     stack.push(1);
     stack.push(2);
     stack.push(3);
-    Stack s(stack);
+    
+    std::cout << "Make a copy of stack 1" << std::endl;
+    Stack stackcopy(stack);
 
+    std::cout << "Push into stack 2: " << std::endl;
+    stackcopy.push(4);
+    
+    std::cout << "STACK 1:" << std::endl;
     stack.displayStack();
-    s.displayStack();
+    std::cout << "STACK 2:" << std::endl;
+    stackcopy.displayStack();
+    std::cout << std::endl;
 }
 
 
