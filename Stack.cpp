@@ -28,7 +28,7 @@ Stack::~Stack()
     data = nullptr;
 }
 
-bool Stack::isEmpty()
+bool Stack::isEmpty() const
 {
     return top==0;
 }
@@ -62,7 +62,7 @@ int Stack::pop()
     return element;
 }
 
-void Stack::displayStack()
+void Stack::displayStack() const
 {
     for (int num = 0; num < top; num++)
     {

@@ -12,9 +12,9 @@ class Stack
         Stack(const Stack &s);
         ~Stack();
 
-        bool isEmpty();
+        bool isEmpty() const;
         void push(int element);
         int pop();
-        void displayStack();
+        void displayStack() const;
 };
 
