@@ -1,7 +1,8 @@
+#include "Stack.h"
+
 #include <iostream>
 #include <stdexcept>
 
-#include "Stack.h"
 
 void basic_test()
 {
@@ -20,7 +21,7 @@ void basic_test()
 void overflow_test()
 {
     Stack stack;
-    std::cout << "======OVERFLOW TEST======" << std::endl;
+    std::cout << "======EXTENSION TEST======" << std::endl;
     stack.push(10);
     stack.push(20);
     stack.push(30);
@@ -116,6 +117,56 @@ void copy_stack_test()
 }
 
 
+void assignment_operator_test()
+{
+    std::cout << "======ASSIGNMENT OPERATOR TEST======" << std::endl;
+
+    Stack smallStack;
+    std::cout << "Push to small stack: " << std::endl;
+    smallStack.push(1);
+
+    Stack largeStack;
+    std::cout << "Push to large stack: " << std::endl;
+    largeStack.push(10);
+    largeStack.push(20);
+    largeStack.push(30);
+
+    std::cout << "--- Larger to smaller ---" << std::endl;
+    smallStack = largeStack;
+    std::cout << "Pop from smallStack: expected 30, actual: " << smallStack.pop() << std::endl;
+
+    std::cout << "--- Smaller to larger ---" << std::endl;
+    Stack tinyStack;
+    std::cout << "Push to smaller stack: " << std::endl;
+    tinyStack.push(99);
+    largeStack = tinyStack; 
+    std::cout << "Pop from largeStack: expected 99, actual: " << largeStack.pop() << std::endl;
+
+    std::cout << "--- Equal size ---" << std::endl;
+    Stack eq1, eq2;
+    std::cout << "Push to the 1st stack: " << std::endl;
+    eq1.push(5); 
+    std::cout << "Push to the 2nd stack: " << std::endl;
+    eq2.push(8); 
+    eq1 = eq2;
+    std::cout << "Pop from eq1: expected 8, actual: " << eq1.pop() << std::endl;
+
+    std::cout << "--- Empty stack ---" << std::endl;
+    Stack emptyStack;
+    eq2 = emptyStack;
+    if (eq2.isEmpty()) {
+        std::cout << "eq2 successfully became empty!" << std::endl;
+    }
+
+    std::cout << "--- Self assignment ---" << std::endl;
+    tinyStack.push(42);
+    tinyStack = tinyStack; 
+    std::cout << "Pop from tinyStack: expected 42, actual: " << tinyStack.pop() << std::endl;
+    std::cout << std::endl;
+}
+
+
+
 int main(void)
 {
     basic_test();
@@ -124,6 +175,6 @@ int main(void)
     two_stacks_test();
     empty_stack_test();
     copy_stack_test();
+    assignment_operator_test();
     return 0;
 }
-

@@ -1,7 +1,7 @@
+#include "Stack.h"
+
 #include <iostream> 
 #include <stdexcept>
-
-#include "Stack.h"
 
 
 Stack::Stack()
@@ -26,7 +26,6 @@ Stack::Stack(const Stack &s)
 Stack::~Stack()
 {
     delete[] data;
-    data = nullptr;
 }
 
 bool Stack::isEmpty() const
