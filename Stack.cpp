@@ -21,7 +21,6 @@ Stack::Stack(const Stack &s)
     }
 }
 
-
 Stack::~Stack()
 {
     delete[] data;
@@ -68,4 +67,28 @@ void Stack::displayStack()
     {
         std::cout << data[num] << std::endl;
     }
+}
+
+Stack& Stack::operator=(const Stack &s)
+{
+    if (this == &s)
+    {
+        return *this;
+    }
+
+    if (this->capacity < s.top)
+    {
+        delete[] this->data;  
+        this->capacity = s.top;
+        this->data = new int[this->capacity];
+    }
+
+    this->top = s.top;
+    for (int i = 0; i < this->top; i++)
+    {
+        this->data[i] = s.data[i];
+    }
+
+    return *this;
+
 }
