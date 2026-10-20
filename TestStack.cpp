@@ -17,10 +17,10 @@ void basic_test()
     std::cout << std::endl;
 }
 
-void overflow_test()
+void extension_test()
 {
     Stack stack;
-    std::cout << "======OVERFLOW TEST======" << std::endl;
+    std::cout << "======EXTENSION TEST======" << std::endl;
     stack.push(10);
     stack.push(20);
     stack.push(30);
@@ -119,7 +119,7 @@ void copy_stack_test()
 int main(void)
 {
     basic_test();
-    overflow_test();
+    extension_test();
     push_and_pop_test();
     two_stacks_test();
     empty_stack_test();
