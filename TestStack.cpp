@@ -116,6 +116,20 @@ void copy_stack_test()
     std::cout << std::endl;
 }
 
+void copy_empty_stack_test()
+{
+    std::cout << "======COPY EMPTY STACK TEST======" << std::endl;
+    Stack emptyOriginal;
+    
+    std::cout << "Make a copy of empty stack" << std::endl;
+    Stack emptyCopy(emptyOriginal); 
+
+    std::cout << "Push into copied empty stack" << std::endl;
+    emptyCopy.push(10);
+    
+    std::cout << "Pop from copied empty stack: expected 10, actual: " << emptyCopy.pop() << std::endl;
+    std::cout << std::endl;
+}
 
 void assignment_operator_test()
 {
@@ -200,6 +214,7 @@ int main(void)
     two_stacks_test();
     empty_stack_test();
     copy_stack_test();
+    copy_empty_stack_test();
     assignment_operator_test();
     //debugger_test();
     return 0;

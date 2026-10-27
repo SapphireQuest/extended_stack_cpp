@@ -14,7 +14,14 @@ Stack::Stack()
 Stack::Stack(const Stack &s)
 {
     top = s.top; 
-    capacity = (s.top) + 1;
+    if (s.top == 0)
+    {
+        capacity = 2;
+    }
+    else
+    {
+        capacity = s.top;
+    }
     data = new int[capacity];
 
     for (int num = 0; num < top; num++)
