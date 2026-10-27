@@ -165,6 +165,31 @@ void assignment_operator_test()
     std::cout << std::endl;
 }
 
+void runSomeFunction(Stack s) {
+}
+
+void runAnotherFunction(Stack& s) {
+}
+
+void debugger_test()
+{
+    Stack s1;
+    s1.push(1);
+    s1.push(2);
+    s1.push(3);
+
+    Stack s2(s1);
+
+    Stack s3 = s1;
+
+    Stack s4;
+    s4.push(10);
+    s4 = s1;
+
+    runSomeFunction(s1);       // Stack object is passed by value.
+    runAnotherFunction(s1);    // Stack object is passed by reference.
+}
+
 
 
 int main(void)
@@ -176,5 +201,6 @@ int main(void)
     empty_stack_test();
     copy_stack_test();
     assignment_operator_test();
+    //debugger_test();
     return 0;
 }
